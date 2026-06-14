@@ -130,65 +130,24 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="External\Imgui\backends\imgui_impl_allegro5.cpp" />
-    <ClCompile Include="External\Imgui\backends\imgui_impl_android.cpp" />
-    <ClCompile Include="External\Imgui\backends\imgui_impl_dx10.cpp" />
-    <ClCompile Include="External\Imgui\backends\imgui_impl_dx11.cpp" />
-    <ClCompile Include="External\Imgui\backends\imgui_impl_dx12.cpp" />
-    <ClCompile Include="External\Imgui\backends\imgui_impl_dx9.cpp" />
-    <ClCompile Include="External\Imgui\backends\imgui_impl_glfw.cpp" />
-    <ClCompile Include="External\Imgui\backends\imgui_impl_glut.cpp" />
-    <ClCompile Include="External\Imgui\backends\imgui_impl_null.cpp" />
-    <ClCompile Include="External\Imgui\backends\imgui_impl_opengl2.cpp" />
-    <ClCompile Include="External\Imgui\backends\imgui_impl_opengl3.cpp" />
-    <ClCompile Include="External\Imgui\backends\imgui_impl_sdl2.cpp" />
-    <ClCompile Include="External\Imgui\backends\imgui_impl_sdl3.cpp" />
-    <ClCompile Include="External\Imgui\backends\imgui_impl_sdlgpu3.cpp" />
-    <ClCompile Include="External\Imgui\backends\imgui_impl_sdlrenderer2.cpp" />
-    <ClCompile Include="External\Imgui\backends\imgui_impl_sdlrenderer3.cpp" />
-    <ClCompile Include="External\Imgui\backends\imgui_impl_vulkan.cpp" />
-    <ClCompile Include="External\Imgui\backends\imgui_impl_wgpu.cpp" />
-    <ClCompile Include="External\Imgui\backends\imgui_impl_win32.cpp" />
-    <ClCompile Include="External\Imgui\examples\example_allegro5\main.cpp" />
-    <ClCompile Include="External\Imgui\examples\example_android_opengl3\main.cpp" />
-    <ClCompile Include="External\Imgui\examples\example_glfw_opengl2\main.cpp" />
-    <ClCompile Include="External\Imgui\examples\example_glfw_opengl3\main.cpp" />
-    <ClCompile Include="External\Imgui\examples\example_glfw_vulkan\main.cpp" />
-    <ClCompile Include="External\Imgui\examples\example_glfw_wgpu\main.cpp" />
-    <ClCompile Include="External\Imgui\examples\example_glut_opengl2\main.cpp" />
-    <ClCompile Include="External\Imgui\examples\example_null\main.cpp" />
-    <ClCompile Include="External\Imgui\examples\example_sdl2_directx11\main.cpp" />
-    <ClCompile Include="External\Imgui\examples\example_sdl2_opengl2\main.cpp" />
-    <ClCompile Include="External\Imgui\examples\example_sdl2_opengl3\main.cpp" />
-    <ClCompile Include="External\Imgui\examples\example_sdl2_sdlrenderer2\main.cpp" />
-    <ClCompile Include="External\Imgui\examples\example_sdl2_vulkan\main.cpp" />
-    <ClCompile Include="External\Imgui\examples\example_sdl2_wgpu\main.cpp" />
-    <ClCompile Include="External\Imgui\examples\example_sdl3_directx11\main.cpp" />
-    <ClCompile Include="External\Imgui\examples\example_sdl3_opengl3\main.cpp" />
-    <ClCompile Include="External\Imgui\examples\example_sdl3_sdlgpu3\main.cpp" />
-    <ClCompile Include="External\Imgui\examples\example_sdl3_sdlrenderer3\main.cpp" />
-    <ClCompile Include="External\Imgui\examples\example_sdl3_vulkan\main.cpp" />
-    <ClCompile Include="External\Imgui\examples\example_sdl3_wgpu\main.cpp" />
-    <ClCompile Include="External\Imgui\examples\example_win32_directx10\main.cpp" />
-    <ClCompile Include="External\Imgui\examples\example_win32_directx11\main.cpp" />
-    <ClCompile Include="External\Imgui\examples\example_win32_directx12\main.cpp" />
-    <ClCompile Include="External\Imgui\examples\example_win32_directx9\main.cpp" />
-    <ClCompile Include="External\Imgui\examples\example_win32_opengl3\main.cpp" />
-    <ClCompile Include="External\Imgui\examples\example_win32_vulkan\main.cpp" />
-    <ClCompile Include="External\Imgui\examples\libs\usynergy\uSynergy.c" />
     <ClCompile Include="External\Imgui\imgui.cpp" />
-    <ClCompile Include="External\Imgui\imgui_demo.cpp" />
     <ClCompile Include="External\Imgui\imgui_draw.cpp" />
+    <ClCompile Include="External\Imgui\imgui_impl_dx11.cpp" />
+    <ClCompile Include="External\Imgui\imgui_impl_win32.cpp" />
     <ClCompile Include="External\Imgui\imgui_tables.cpp" />
     <ClCompile Include="External\Imgui\imgui_widgets.cpp" />
-    <ClCompile Include="External\Imgui\misc\cpp\imgui_stdlib.cpp" />
-    <ClCompile Include="External\Imgui\misc\fonts\binary_to_compressed_c.cpp" />
-    <ClCompile Include="External\Imgui\misc\freetype\imgui_freetype.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="DX3D\Source\systemclass.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DX3D\Include\systemclass.h" />
+    <ClInclude Include="External\Imgui\imconfig.h" />
+    <ClInclude Include="External\Imgui\imgui.h" />
+    <ClInclude Include="External\Imgui\imgui_impl_dx11.h" />
+    <ClInclude Include="External\Imgui\imgui_impl_win32.h" />
+    <ClInclude Include="External\Imgui\imgui_internal.h" />
+    <ClInclude Include="External\Imgui\imstb_rectpack.h" />
+    <ClInclude Include="External\Imgui\imstb_textedit.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
