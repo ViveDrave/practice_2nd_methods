@@ -1,5 +1,4 @@
 #include "../Include/systemclass.h"
-
 SystemClass::SystemClass()
 {
 }
@@ -24,7 +23,7 @@ void SystemClass::Shutdown()
 {
 	DestroyWindow(m_hwnd);
 	m_hwnd = NULL;
-	
+
 	m_hinstance = NULL;
 	ApplicationHandle = NULL;
 
@@ -55,14 +54,12 @@ void SystemClass::Run()
 		}
 		else
 		{
-
-
-			// Frame processing
-			//result = m_ApplicationFrame->Frame();
-			//if (!result)
-			//{
-			//	done = true;
-			//}
+			//Frame processing
+			ImGui_ImplWin32_NewFrame();
+			ImGui::NewFrame();
+			bool show_demo_window = true;
+			ImGui::ShowDemoWindow(&show_demo_window);
+			ImGui::Render();
 		}
 	}
 
@@ -130,15 +127,23 @@ void SystemClass::InitializeWindows(int& screenWidth, int& screenHeight)
 	ShowWindow(m_hwnd, SW_SHOW);
 	SetForegroundWindow(m_hwnd);
 	SetFocus(m_hwnd);
-	
+
+	ImGui::CreateContext();
+	ImGuiIO& io = ImGui::GetIO(); (void)io;
+	ImGui::StyleColorsDark();
+	ImGui_ImplWin32_Init(m_hwnd);
 	return;
 }
 
 
 
 
-LRESULT WndProc(HWND hwnd, UINT umessage, WPARAM waparam, LPARAM lparam)
+LRESULT WndProc(HWND hwnd, UINT umessage, WPARAM wparam, LPARAM lparam)
 {
+
+	if (ImGui_ImplWin32_WndProcHandler(hwnd, umessage, wparam, lparam))
+	        return true;
+
 	switch (umessage)
 	{
 	case WM_DESTROY:
@@ -153,7 +158,7 @@ LRESULT WndProc(HWND hwnd, UINT umessage, WPARAM waparam, LPARAM lparam)
 	}
 	default:
 	{
-		return DefWindowProc(hwnd, umessage, waparam, lparam);
+		return DefWindowProc(hwnd, umessage, wparam, lparam);
 	}
 	}
 }

@@ -6,6 +6,10 @@
 //#include "inputclass.h"
 //#include "applicationclass.h"
 
+#include "../../External/Imgui/imgui.h"
+#include "../../External/Imgui/imgui_impl_win32.h"
+#include "../../External/Imgui/imgui_impl_dx11.h"
+
 class SystemClass
 {
 public:
@@ -36,6 +40,7 @@ private:
 // FUNCTION PROTOTYPES //
 /////////////////////////
 static LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);
+extern IMGUI_IMPL_API LRESULT ImGui_ImplWin32_WndProcHandler(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
 
 /////////////
 // GLOBALS //
