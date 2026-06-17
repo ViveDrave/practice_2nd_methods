@@ -130,24 +130,37 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="DX3D\Source\d3dclass.cpp" />
+    <ClCompile Include="DX3D\Source\applicationclass.cpp" />
     <ClCompile Include="External\Imgui\imgui.cpp" />
+    <ClCompile Include="External\Imgui\imgui_demo.cpp" />
     <ClCompile Include="External\Imgui\imgui_draw.cpp" />
     <ClCompile Include="External\Imgui\imgui_impl_dx11.cpp" />
     <ClCompile Include="External\Imgui\imgui_impl_win32.cpp" />
     <ClCompile Include="External\Imgui\imgui_tables.cpp" />
     <ClCompile Include="External\Imgui\imgui_widgets.cpp" />
+    <ClCompile Include="External\Imgui\implot.cpp" />
+    <ClCompile Include="External\Imgui\implot_demo.cpp" />
+    <ClCompile Include="External\Imgui\implot_items.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="DX3D\Source\systemclass.cpp" />
+    <ClCompile Include="DX3D\Source\riskanalyzer.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="DX3D\Include\d3dclass.h" />
+    <ClInclude Include="DX3D\Include\applicationclass.h" />
     <ClInclude Include="DX3D\Include\systemclass.h" />
     <ClInclude Include="External\Imgui\imconfig.h" />
     <ClInclude Include="External\Imgui\imgui.h" />
     <ClInclude Include="External\Imgui\imgui_impl_dx11.h" />
     <ClInclude Include="External\Imgui\imgui_impl_win32.h" />
     <ClInclude Include="External\Imgui\imgui_internal.h" />
+    <ClInclude Include="External\Imgui\implot.h" />
+    <ClInclude Include="External\Imgui\implot_internal.h" />
     <ClInclude Include="External\Imgui\imstb_rectpack.h" />
     <ClInclude Include="External\Imgui\imstb_textedit.h" />
+    <ClInclude Include="External\Imgui\imstb_truetype.h" />
+    <ClInclude Include="DX3D\Include\riskanalyzer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

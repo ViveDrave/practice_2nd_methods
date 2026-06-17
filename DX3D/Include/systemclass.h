@@ -3,12 +3,9 @@
 ////////////////////////////////////////////////////////////////////////////////
 #pragma once
 #include <windows.h>
-//#include "inputclass.h"
-//#include "applicationclass.h"
 
-#include "../../External/Imgui/imgui.h"
-#include "../../External/Imgui/imgui_impl_win32.h"
-#include "../../External/Imgui/imgui_impl_dx11.h"
+//#include "inputclass.h"
+#include "applicationclass.h"
 
 class SystemClass
 {
@@ -20,7 +17,7 @@ public:
 	void Shutdown();
 	void Run();
 
-	LRESULT CALLBACK MessageHandler(HWND, UINT, WPARAM, LPARAM);
+	//LRESULT CALLBACK MessageHandler(HWND, UINT, WPARAM, LPARAM);
 
 private:
 	bool Frame();
@@ -32,7 +29,7 @@ private:
 	HINSTANCE m_hinstance;
 	HWND m_hwnd;
 	// InputClass* m_Input;
-	//ApplicationClass* m_Application;
+	ApplicationClass* m_Application;
 
 };
 
@@ -40,7 +37,6 @@ private:
 // FUNCTION PROTOTYPES //
 /////////////////////////
 static LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);
-extern IMGUI_IMPL_API LRESULT ImGui_ImplWin32_WndProcHandler(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
 
 /////////////
 // GLOBALS //

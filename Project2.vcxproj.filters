@@ -27,6 +27,27 @@
     <ClCompile Include="External\Imgui\imgui_widgets.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="External\Imgui\imgui_demo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DX3D\Source\applicationclass.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DX3D\Source\d3dclass.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DX3D\Source\riskanalyzer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="External\Imgui\implot_items.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="External\Imgui\implot.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="External\Imgui\implot_demo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DX3D\Include\systemclass.h" />
@@ -37,5 +58,11 @@
     <ClInclude Include="External\Imgui\imgui_internal.h" />
     <ClInclude Include="External\Imgui\imstb_rectpack.h" />
     <ClInclude Include="External\Imgui\imstb_textedit.h" />
+    <ClInclude Include="External\Imgui\imstb_truetype.h" />
+    <ClInclude Include="DX3D\Include\applicationclass.h" />
+    <ClInclude Include="DX3D\Include\d3dclass.h" />
+    <ClInclude Include="DX3D\Include\riskanalyzer.h" />
+    <ClInclude Include="External\Imgui\implot.h" />
+    <ClInclude Include="External\Imgui\implot_internal.h" />
   </ItemGroup>
 </Project>

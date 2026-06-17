@@ -1,6 +1,8 @@
 #include "../Include/systemclass.h"
+
 SystemClass::SystemClass()
 {
+	m_Application = 0;
 }
 
 SystemClass::~SystemClass()
@@ -15,7 +17,18 @@ bool SystemClass::Initialize()
 	screenWidth = 0;
 	screenHeight = 0;
 
+	// Initialize windows first to create the window handle before initializing the graphics system.
 	InitializeWindows(screenWidth, screenHeight);
+
+	// Create and initialize the application class object.  This object will handle rendering all the graphics for this application.
+	m_Application = new ApplicationClass;
+
+	result = m_Application->Initialize(screenWidth, screenHeight, m_hwnd);
+	if (!result)
+	{
+		return false;
+	}
+
 	return true;
 }
 
@@ -39,6 +52,7 @@ void SystemClass::Run()
 
 	ZeroMemory(&msg, sizeof(MSG));
 	done = false;
+
 	while (!done)
 	{
 		// Handle the windows messages
@@ -55,14 +69,12 @@ void SystemClass::Run()
 		else
 		{
 			//Frame processing
-			ImGui_ImplWin32_NewFrame();
-			ImGui::NewFrame();
-			bool show_demo_window = true;
-			ImGui::ShowDemoWindow(&show_demo_window);
-			ImGui::Render();
+			result = m_Application->Frame();
+			if (!result) {
+				done = true;
+			}
 		}
 	}
-
 	return;
 }
 
@@ -72,7 +84,7 @@ void SystemClass::Run()
 //	{
 //	case WM_KEYDOWN: 
 //	{
-//	
+//			
 //	}
 //
 //	default:
@@ -83,17 +95,14 @@ void SystemClass::Run()
 void SystemClass::InitializeWindows(int& screenWidth, int& screenHeight)
 {
 	WNDCLASSEX wc;
-	DEVMODE dmScreenSettings;
 	int posX, posY;
 
 	ApplicationHandle = this;
-
 
 	// Get instance of the application
 	m_hinstance = GetModuleHandle(NULL);
 	
 	m_applicationName = L"Engine";
-
 
 	wc.style = CS_HREDRAW | CS_VREDRAW | CS_OWNDC;
 	wc.lpfnWndProc = WndProc;
@@ -113,36 +122,38 @@ void SystemClass::InitializeWindows(int& screenWidth, int& screenHeight)
 	screenWidth = GetSystemMetrics(SM_CXSCREEN);
 	screenHeight = GetSystemMetrics(SM_CYSCREEN);
 
-	screenWidth = 800;
+	screenWidth = 1200;
 	screenHeight = 600;
 
-	posX = (GetSystemMetrics(SM_CXSCREEN)) / 2;
-	posY = (GetSystemMetrics(SM_CYSCREEN)) / 2;
 
+	RECT windowRect = { 0, 0, screenWidth, screenHeight };
+	AdjustWindowRect(&windowRect, WS_OVERLAPPEDWINDOW, FALSE);
+	int realWindowWidth = windowRect.right - windowRect.left;
+	int realWindowHeight = windowRect.bottom - windowRect.top;
+
+	posX = (GetSystemMetrics(SM_CXSCREEN) - realWindowWidth) / 2;
+	posY = (GetSystemMetrics(SM_CYSCREEN) - realWindowHeight) / 2;
 
 	m_hwnd = CreateWindowEx(WS_EX_APPWINDOW, m_applicationName, m_applicationName,
 		WS_OVERLAPPEDWINDOW,
-		posX, posY, screenWidth, screenHeight, NULL, NULL, m_hinstance, NULL);
+		posX, posY, realWindowWidth, realWindowHeight, NULL, NULL, m_hinstance, NULL);
 
 	ShowWindow(m_hwnd, SW_SHOW);
 	SetForegroundWindow(m_hwnd);
 	SetFocus(m_hwnd);
 
-	ImGui::CreateContext();
-	ImGuiIO& io = ImGui::GetIO(); (void)io;
-	ImGui::StyleColorsDark();
-	ImGui_ImplWin32_Init(m_hwnd);
 	return;
 }
-
-
 
 
 LRESULT WndProc(HWND hwnd, UINT umessage, WPARAM wparam, LPARAM lparam)
 {
 
-	if (ImGui_ImplWin32_WndProcHandler(hwnd, umessage, wparam, lparam))
-	        return true;
+	if (ImGui::GetCurrentContext() != nullptr)
+	{
+		if (ImGui_ImplWin32_WndProcHandler(hwnd, umessage, wparam, lparam))
+			return true;
+	}
 
 	switch (umessage)
 	{
