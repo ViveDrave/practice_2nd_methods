@@ -178,7 +178,7 @@ static void RenderExpertScoresTable(RiskAnalyzer& analyzer, bool& needs_recalc)
 static void RenderExpertRanksTable(RiskAnalyzer& analyzer, bool& needs_recalc)
 {
 	ImGui::SeparatorText("Трансформованi ранги (1 - найвищий, 6 - найнижчий)");
-	ImGui::TextDisabled("Ранги оновлюються автоматично при змiнi оцiнок. Для ручного введення змiнiть значення.");
+	//ImGui::TextDisabled("Ранги оновлюються автоматично при змiнi оцiнок. Для ручного введення змiнiть значення.");
 
 	if (ImGui::BeginTable("Ranks_Table", 7, ImGuiTableFlags_Borders | ImGuiTableFlags_RowBg))
 	{

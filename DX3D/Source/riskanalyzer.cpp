@@ -3,7 +3,16 @@
 RiskAnalyzer::RiskAnalyzer() {
     threat_names = {"Фішинг", "Malware", "Витік даних", "Акаунт", "Внутрішня", "DDoS"};
 
-    ahp_matrix.assign(num_threats, std::vector<double>(num_threats, 1.0));
+    ahp_matrix = {
+        {1.0, 1.0, 1.0, 2.0, 2.0, 3.0},
+        {1.0, 1.0, 1.0, 2.0, 2.0, 3.0},
+        {1.0, 1.0, 1.0, 1.0, 2.0, 2.0},
+        {0.5, 0.5, 1.0, 1.0, 1.0, 2.0},
+        { 0.5, 0.5, 0.5, 1.0, 1.0, 2.0 },
+        { 0.33, 0.33, 0.5, 0.5, 0.5, 1.0 }
+    };
+
+    //ahp_matrix.assign(num_threats, std::vector<double>(num_threats, 1.0));
 
     expert_scores = {
         {9, 8, 7, 5, 6, 9},
@@ -12,7 +21,14 @@ RiskAnalyzer::RiskAnalyzer() {
         {8, 9, 7, 6, 7, 8}
     };
 
-    expert_ranks.assign(num_experts, std::vector<int>(num_threats, 1));
+    expert_ranks = {
+        {6, 4, 3, 1, 2, 6},
+        {6, 6, 6, 2, 2, 3},
+        {6, 4, 4, 2, 1, 6},
+        {5, 6, 3, 1, 3, 5}
+    };
+
+    //expert_ranks.assign(num_experts, std::vector<int>(num_threats, 1));
     computeRanksFromScores();
 }
 
