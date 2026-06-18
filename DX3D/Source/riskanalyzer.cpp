@@ -8,11 +8,9 @@ RiskAnalyzer::RiskAnalyzer() {
         {1.0, 1.0, 1.0, 2.0, 2.0, 3.0},
         {1.0, 1.0, 1.0, 1.0, 2.0, 2.0},
         {0.5, 0.5, 1.0, 1.0, 1.0, 2.0},
-        { 0.5, 0.5, 0.5, 1.0, 1.0, 2.0 },
-        { 0.33, 0.33, 0.5, 0.5, 0.5, 1.0 }
+        {0.5, 0.5, 0.5, 1.0, 1.0, 2.0},
+        {0.33, 0.33, 0.5, 0.5, 0.5, 1.0}
     };
-
-    //ahp_matrix.assign(num_threats, std::vector<double>(num_threats, 1.0));
 
     expert_scores = {
         {9, 8, 7, 5, 6, 9},
@@ -28,7 +26,6 @@ RiskAnalyzer::RiskAnalyzer() {
         {5, 6, 3, 1, 3, 5}
     };
 
-    //expert_ranks.assign(num_experts, std::vector<int>(num_threats, 1));
     computeRanksFromScores();
 }
 
